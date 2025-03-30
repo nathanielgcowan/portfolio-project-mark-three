@@ -1,7 +1,7 @@
 const Task = ({  task, index }) => {
-    console.log(task);
+    console.log(task, index);
     return (
-        <tr key={task.id}>
+        <tr key={index}>
             <td>{task.text}</td>
             <td>Blue</td>
         </tr>
