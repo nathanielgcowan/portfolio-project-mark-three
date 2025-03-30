@@ -1,22 +1,24 @@
 import React from 'react'
+import Task from './Task'
+import { ITask } from "@/types/tasks";
 
-const TodoList = () => {
+interface TodoListProps {
+  tasks: ITask[]
+}
+
+const TodoList: React.FC<TodoListProps> = ({ tasks }) => {
   return (
     <div className="overflow-x-auto">
     <table className="table">
         {/* head */}
         <thead>
-        <tr>
-            <th>Name</th>
-            <th>Favorite Color</th>
-        </tr>
+          <tr>
+              <th>Name</th>
+              <th>Favorite Color</th>
+          </tr>
         </thead>
         <tbody>
-        {/* row 1 */}
-        <tr>
-            <td>Cy Ganderton</td>
-            <td>Blue</td>
-        </tr>
+          {tasks.map((task, index) => <Task task={task} index={index}/>)}
         </tbody>
     </table>
     </div>
